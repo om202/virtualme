@@ -1,0 +1,24 @@
+.outgoing_msg {
+  display: flex;
+  flex-direction: row;
+  align-items:flex-start;
+  margin-top: 1.5rem;
+}
+.chat-person-img {
+  width: 44px;
+}
+
+.sent_msg {
+  padding-left: 1rem;
+}
+
+.sent_msg > .title {
+  color: var(--blue);
+  font-size: 14px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.sent_msg p {
+  color: var(--font-color);
+}

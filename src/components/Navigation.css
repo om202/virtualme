@@ -1,0 +1,17 @@
+.navbar {
+  border-bottom: 1px solid var(--border);
+  padding: 0rem 1rem !important;
+}
+
+.navbar * {
+  color: var(--font-color) !important;
+}
+
+.navbar-brand {
+  color: #fff !important;
+  font-family: "Honk", system-ui;
+  font-size: 1.8rem;
+  font-weight: bolder !important;
+  text-transform: lowercase;
+  font-style: italic;
+}
