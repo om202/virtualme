@@ -1,23 +1,23 @@
 import React from "react";
 import "./IncomingMessage.css";
 
-export const IncomingMessage = ({ message, date, time }) => {
+export const IncomingMessage = ({ message, name, img }) => {
   return (
-    <div class="incoming_msg">
-      <div class="incoming_msg_img">
+    <div className="incoming_msg">
+      <div className="incoming_msg_img">
         <img
           className="rounded-circle chat-person-img"
-          src="./ghost.png"
+          src={img}
           alt="incoming"
         ></img>
       </div>
-      <div class="received_msg">
+      <div className="received_msg">
         <div className="title">
-          Ghost
+          {name}
         </div>
-        <div class="received_withd_msg">
+        <div className="received_withd_msg">
           <p>{message}</p>
-          {/* <span class="time_date">
+          {/* <span className="time_date">
             {time} | {date}
           </span> */}
         </div>

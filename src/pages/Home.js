@@ -1,5 +1,6 @@
 import BotCard from "../components/BotCard";
 import "./Home.css";
+import { BotData } from "../botdata";
 
 const Home = () => {
   return (
@@ -8,9 +9,9 @@ const Home = () => {
         <p>Choose a Bot</p>
         <div className="col-12">
           <div className="row">
-            <BotCard name="Ghost" img="bot1.png" />
-            <BotCard name="Albert Einstein" img="bot2.png" />
-            <BotCard name="Elon Musk" img="bot3.png" />
+            {BotData.map((bot, index) => (
+              <BotCard key={index} name={bot.name} img={bot.img}/>
+            ))}
           </div>
         </div>
       </div>

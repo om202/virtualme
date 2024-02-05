@@ -1,117 +1,105 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Messaging.css";
 import { IncomingMessage } from "../components/IncomingMessage";
 import { OutgoingMessage } from "../components/OutgoingMessage";
-
-const chatData = [
-  {
-    message:
-      "Bro why are you speaking like this? I am not able to understand. Are you okay? I heard that you are not well. What happened? Can you tell me? I am here to help you.",
-    date: "Feb 4",
-    time: "11:37 AM",
-    type: "incoming",
-  },
-  {
-    message:
-      "I am in Hospital. I am not feeling well. Actually I am suffering from fever. So I am not able to speak properly. I got admitted to the hospital yesterday. I am feeling very weak.",
-    date: "Feb 4",
-    time: "11:38 AM",
-    type: "outgoing",
-  },
-  {
-    message: "Which Hospital are you in right now?",
-    date: "Feb 4",
-    time: "11:38 AM",
-    type: "incoming",
-  },
-  {
-    message: "I am in Apollo Hospital",
-    date: "Feb 4",
-    time: "11:38 AM",
-    type: "outgoing",
-  },
-  {
-    message: "I will come to meet you",
-    date: "Feb 4",
-    time: "11:38 AM",
-    type: "incoming",
-  },
-  {
-    message: "I'll be there in about 30 minutes.",
-    date: "Feb 4",
-    time: "11:40 AM",
-    type: "incoming",
-  },
-  {
-    message: "Okay, see you then.",
-    date: "Feb 4",
-    time: "11:41 AM",
-    type: "outgoing",
-  },
-  {
-    message: "Take care, bro.",
-    date: "Feb 4",
-    time: "11:42 AM",
-    type: "incoming",
-  },
-  {
-    message: "You too. Bye.",
-    date: "Feb 4",
-    time: "11:42 AM",
-    type: "outgoing",
-  },
-  {
-    message: "You too. Bye.",
-    date: "Feb 4",
-    time: "11:42 AM",
-    type: "outgoing",
-  },
-];
+import { useLocation } from "react-router-dom";
+import { chat } from "../services/langchat";
 
 export default function Messaging() {
+  const location = useLocation();
+  const { name, img } = location.state;
+  const [message, setMessage] = React.useState("");
+  const [chatData, setChatData] = React.useState([]);
+  const msgHistoryRef = React.useRef(null);
+
+  useEffect(() => {
+    setChatData([
+      {
+        message: "Hello, I am Elon Musk. Nice to meet you!",
+        type: "incoming",
+      },
+    ]);
+  }, []);
+
+  const sendMessage = (e) => {
+    e.preventDefault();
+    if (message === "") return;
+    setMessage("");
+    const tempChatData = [
+      ...chatData,
+      {
+        message: 'typing...',
+        type: "incoming",
+      },
+    ];
+    setChatData(tempChatData);
+    chat(message).then((response) => {
+      const newChatData = [
+        ...chatData,
+        {
+          message: message,
+          type: "outgoing",
+        },
+        {
+          message: response,
+          type: "incoming",
+        },
+      ];
+      setChatData(newChatData);
+    });
+  };
+
+  useEffect(() => {
+    if (msgHistoryRef.current) {
+      msgHistoryRef.current.scrollTop = msgHistoryRef.current.scrollHeight;
+    }
+  }, [chatData]);
+
   return (
-    <div class="container-fluid messaging-container">
-      <div class="messaging">
-        <div class="inbox_msg">
-          <div class="mesgs">
-            <div class="msg_history">
-              {chatData.map((chat, index) => {
-                if (chat.type === "incoming") {
-                  return (
-                    <IncomingMessage
-                      key={index}
-                      message={chat.message}
-                      date={chat.date}
-                      time={chat.time}
-                    />
-                  );
-                } else {
-                  return (
-                    <OutgoingMessage
-                      key={index}
-                      message={chat.message}
-                      date={chat.date}
-                      time={chat.time}
-                    />
-                  );
-                }
-              })}
-            </div>
-            <div class="type_msg">
-              <div class="input_msg_write">
+    <div className="container-fluid messaging-container">
+      <div className="messaging">
+        <div className="mesgs">
+          <div className="msg_history" ref={msgHistoryRef}>
+            {chatData.map((chat, index) => {
+              if (chat.type === "incoming") {
+                return (
+                  <IncomingMessage
+                    key={index}
+                    message={chat.message}
+                    name={name}
+                    img={img}
+                  />
+                );
+              } else {
+                return (
+                  <OutgoingMessage
+                    key={index}
+                    message={chat.message}
+                    date={chat.date}
+                    time={chat.time}
+                  />
+                );
+              }
+            })}
+          </div>
+          <div className="type_msg">
+            <div className="input_msg_write">
+              <form onSubmit={sendMessage}>
                 <input
                   type="text"
-                  class="write_msg"
+                  className="write_msg"
                   placeholder="Type a message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                 />
                 <button
-                  class="msg_send_btn"
-                  type="button"
+                  className="msg_send_btn"
+                  type="submit"
                   aria-label="Send Message"
                 >
-                  <i class="bi bi-send"></i>
+                  <i className="bi bi-send"></i>
                 </button>
-              </div>
+              </form>
             </div>
           </div>
         </div>

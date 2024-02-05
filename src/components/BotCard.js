@@ -1,11 +1,18 @@
 import React from "react";
 import "./BotCard.css";
+import { useNavigate } from "react-router-dom";
 
-const BotCard = () => {
+const BotCard = ({ name, img }) => {
+  const navigate = useNavigate();
   return (
-    <div className="bot-card">
-      <img src="./ghost.png" alt="bot" />
-      <p className="bot-title">Ghost</p>
+    <div
+      className="bot-card"
+      onClick={() => {
+        navigate("/messaging", { state: { name, img } });
+      }}
+    >
+      <img src={img} alt="bot" />
+      <p className="bot-title">{name}</p>
     </div>
   );
 };

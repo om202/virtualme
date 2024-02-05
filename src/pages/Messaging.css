@@ -57,4 +57,5 @@
 .msg_history {
   height:calc(100vh - 127px);
   overflow-y: auto;
+  padding-bottom: 4rem;
 }
