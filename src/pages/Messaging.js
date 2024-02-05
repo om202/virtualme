@@ -3,11 +3,13 @@ import "./Messaging.css";
 import { IncomingMessage } from "../components/IncomingMessage";
 import { OutgoingMessage } from "../components/OutgoingMessage";
 import { useLocation } from "react-router-dom";
-import { chat } from "../services/langchat";
+import { chat, setUpChat } from "../services/langchat";
+import { BotData } from "../botdata";
 
 export default function Messaging() {
   const location = useLocation();
-  const { name, img } = location.state;
+  const {botIndex} = location.state;
+  const { name, img, initlaMessage, instructions} = BotData[botIndex];
   const [message, setMessage] = React.useState("");
   const [chatData, setChatData] = React.useState([]);
   const msgHistoryRef = React.useRef(null);
@@ -15,10 +17,12 @@ export default function Messaging() {
   useEffect(() => {
     setChatData([
       {
-        message: "Hello, I am Elon Musk. Nice to meet you!",
+        message: initlaMessage,
         type: "incoming",
       },
     ]);
+
+    setUpChat(instructions);
   }, []);
 
   const sendMessage = (e) => {

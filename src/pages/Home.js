@@ -10,7 +10,7 @@ const Home = () => {
         <div className="col-12">
           <div className="row">
             {BotData.map((bot, index) => (
-              <BotCard key={index} name={bot.name} img={bot.img}/>
+              <BotCard key={index} botIndex={index}/>
             ))}
           </div>
         </div>
