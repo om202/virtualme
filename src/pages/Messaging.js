@@ -8,8 +8,8 @@ import { BotData } from "../botdata";
 
 export default function Messaging() {
   const location = useLocation();
-  const {botIndex} = location.state;
-  const { name, img, initlaMessage, instructions} = BotData[botIndex];
+  const { botIndex } = location.state;
+  const { name, img, initlaMessage, instructions } = BotData[botIndex];
   const [message, setMessage] = React.useState("");
   const [chatData, setChatData] = React.useState([]);
   const msgHistoryRef = React.useRef(null);
@@ -23,33 +23,33 @@ export default function Messaging() {
     ]);
 
     setUpChat(instructions);
-  }, []);
+  }, [initlaMessage, instructions]);
 
   const sendMessage = (e) => {
     e.preventDefault();
     if (message === "") return;
     setMessage("");
-    const tempChatData = [
-      ...chatData,
+
+    setChatData((prevChatData) => [
+      ...prevChatData,
       {
-        message: 'typing...',
+        message: message,
+        type: "outgoing",
+      },
+      {
+        message: "typing...",
         type: "incoming",
       },
-    ];
-    setChatData(tempChatData);
+    ]);
+
     chat(message).then((response) => {
-      const newChatData = [
-        ...chatData,
-        {
-          message: message,
-          type: "outgoing",
-        },
+      setChatData((prevChatData) => [
+        ...prevChatData.slice(0, prevChatData.length - 1),
         {
           message: response,
           type: "incoming",
         },
-      ];
-      setChatData(newChatData);
+      ]);
     });
   };
 

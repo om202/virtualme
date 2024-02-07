@@ -1,5 +1,6 @@
 import React from "react";
 import "./IncomingMessage.css";
+import TypingIndicator from "./TypingIndicator";
 
 export const IncomingMessage = ({ message, name, img }) => {
   return (
@@ -12,14 +13,9 @@ export const IncomingMessage = ({ message, name, img }) => {
         ></img>
       </div>
       <div className="received_msg">
-        <div className="title">
-          {name}
-        </div>
+        <div className="title">{name}</div>
         <div className="received_withd_msg">
-          <p>{message}</p>
-          {/* <span className="time_date">
-            {time} | {date}
-          </span> */}
+          {message === "typing..." ? <TypingIndicator /> : <p>{message}</p>}
         </div>
       </div>
     </div>

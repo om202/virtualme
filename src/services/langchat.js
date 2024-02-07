@@ -17,7 +17,7 @@ export const setUpChat = (instructions) => {
     [
       "system",
       instructions,
-    ],
+    ],  
     new MessagesPlaceholder("history"),
     ["human", "{input}"],
   ]);
