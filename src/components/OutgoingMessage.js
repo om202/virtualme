@@ -7,7 +7,7 @@ export const OutgoingMessage = ({ message, date, time }) => {
       <div className="outgoing_msg_img">
         <img
           className="rounded-circle chat-person-img"
-          src="./user.png"
+          src="./user.jpg"
           alt="outgoing"
         ></img>
       </div>
