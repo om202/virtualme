@@ -32,18 +32,8 @@
   border-radius: 10px;
 }
 
-@media screen and (max-width: 600px) {
-  .bot-card {
-    width: 160px;
-    height: 160px;
-  }
 
-  .bot-card img {
-    max-width: 92px;
-  }
-}
-
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 500px) {
   .bot-card {
     width: 100%;
     margin-right: 0;
