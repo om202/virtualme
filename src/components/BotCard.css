@@ -34,13 +34,12 @@
 
 @media screen and (max-width: 600px) {
   .bot-card {
-    width: 140px;
-    height: 140px;
-    font-size: 0.9rem;
+    width: 160px;
+    height: 160px;
   }
 
   .bot-card img {
-    max-width: 70px;
+    max-width: 92px;
   }
 }
 
