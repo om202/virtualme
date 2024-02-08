@@ -1,33 +1,21 @@
 .messaging-container {
   display: flex;
-  padding: 0;
+  padding: 1rem;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.time_date {
-  color: #747474;
-  display: block;
-  font-size: 12px;
-  margin: 8px 0 0;
-}
-
-.mesgs {
-  padding: 1rem;
-}
-
-
 .input_msg_write input {
   background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
   border: none;
   color: var(--font-color);
-  font-size: 15px;
+  font-weight: inherit;
   min-height: 48px;
-  width: 100%;
+  width: 90%;
 }
 
-.type_msg {
+.input_msg_write {
   border-top: 1px solid var(--border);
   position: relative;
 }
@@ -43,9 +31,9 @@
   color: var(--font-color);
   background: none;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 21px;
   position: absolute;
-  right: 1rem;
+  right: 0.8rem;
   top: 11px;
 }
 
@@ -55,7 +43,7 @@
 }
 
 .msg_history {
-  height:calc(100vh - 127px);
+  height: calc(var(--vh, 1vh) * 100 - 127px);
   overflow-y: auto;
   padding-bottom: 4rem;
 }

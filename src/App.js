@@ -4,8 +4,10 @@ import Home from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NewCharacter from "./pages/NewCharacter";
 import NotFound from "./pages/NotFound";
+import { useEffect } from "react";
 
 function App() {
+
   return (
     <div>
       <Router>

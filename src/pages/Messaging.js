@@ -15,6 +15,15 @@ export default function Messaging() {
   const msgHistoryRef = React.useRef(null);
 
   useEffect(() => {
+    function adjustHeight() {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    }
+    window.addEventListener("resize", adjustHeight);
+    adjustHeight();
+  }, []);
+
+  useEffect(() => {
     setChatData([
       {
         message: initlaMessage,
@@ -62,50 +71,46 @@ export default function Messaging() {
   return (
     <div className="container-fluid messaging-container">
       <div className="messaging">
-        <div className="mesgs">
-          <div className="msg_history" ref={msgHistoryRef}>
-            {chatData.map((chat, index) => {
-              if (chat.type === "incoming") {
-                return (
-                  <IncomingMessage
-                    key={index}
-                    message={chat.message}
-                    name={name}
-                    img={img}
-                  />
-                );
-              } else {
-                return (
-                  <OutgoingMessage
-                    key={index}
-                    message={chat.message}
-                    date={chat.date}
-                    time={chat.time}
-                  />
-                );
-              }
-            })}
-          </div>
-          <div className="type_msg">
-            <div className="input_msg_write">
-              <form onSubmit={sendMessage}>
-                <input
-                  type="text"
-                  className="write_msg"
-                  placeholder="Type a message"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
+        <div className="msg_history" ref={msgHistoryRef}>
+          {chatData.map((chat, index) => {
+            if (chat.type === "incoming") {
+              return (
+                <IncomingMessage
+                  key={index}
+                  message={chat.message}
+                  name={name}
+                  img={img}
                 />
-                <button
-                  className="msg_send_btn"
-                  type="submit"
-                  aria-label="Send Message"
-                >
-                  <i className="bi bi-send"></i>
-                </button>
-              </form>
-            </div>
-          </div>
+              );
+            } else {
+              return (
+                <OutgoingMessage
+                  key={index}
+                  message={chat.message}
+                  date={chat.date}
+                  time={chat.time}
+                />
+              );
+            }
+          })}
+        </div>
+        <div className="input_msg_write">
+          <form onSubmit={sendMessage}>
+            <input
+              type="text"
+              className="write_msg"
+              placeholder="Type a message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
+            <button
+              className="msg_send_btn"
+              type="submit"
+              aria-label="Send Message"
+            >
+              <i className="bi bi-send"></i>
+            </button>
+          </form>
         </div>
       </div>
     </div>

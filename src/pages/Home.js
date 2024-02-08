@@ -1,8 +1,10 @@
 import BotCard from "../components/BotCard";
 import "./Home.css";
 import { BotData } from "../botdata";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <div className="container-fluid home-container">
       <div className="row no-gutters">
@@ -10,10 +12,10 @@ const Home = () => {
           <span>Choose a Character</span>
         </div>
         <div className="col-12 col-md-6 text-md-right">
-          <a href="/new" className="new-character-button">
+          <button onClick={() => navigate("/new")} className="btn new-character-button">
             <i className="bi bi-plus-lg"></i>
             Create
-          </a>
+          </button>
         </div>
       </div>
       <div className="row mt-4">
