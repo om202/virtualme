@@ -3,6 +3,7 @@
 :root {
   --font-color: #bbbbbb;
   --card-color: #2f2f2f;
+  --background: rgb(36, 37, 37);
   --border: #3f3f3f;
   --blue: rgb(93, 93, 238);
   --orange: rgb(255, 165, 0);
@@ -10,7 +11,7 @@
 }
 
 body {
-  background-color: rgb(36, 37, 37);
+  background-color: var(--background);
   margin: 0;
   color: var(--font-color);
   font-family: 'Raleway', sans-serif;
@@ -21,4 +22,22 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+/* Change 'color' to your app's color */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--blue);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

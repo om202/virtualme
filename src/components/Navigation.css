@@ -1,6 +1,7 @@
 .navbar {
   border-bottom: 1px solid var(--border);
   padding: 0rem 1rem !important;
+  background-color: var(--blue);
 }
 
 .navbar * {
