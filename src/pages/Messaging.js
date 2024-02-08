@@ -8,7 +8,7 @@ import { BotData } from "../botdata";
 
 export default function Messaging() {
   const location = useLocation();
-  const { botIndex } = location.state;
+  const botIndex = location.state ? location.state.botIndex : 0;
   const { name, img, initlaMessage, instructions } = BotData[botIndex];
   const [message, setMessage] = React.useState("");
   const [chatData, setChatData] = React.useState([]);

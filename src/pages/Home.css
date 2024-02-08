@@ -1,5 +1,6 @@
 .home-container {
-  margin: 2rem;
+  margin: 0;
+  padding: 2rem 4rem;
 }
 
 .bot-row {
@@ -18,12 +19,21 @@
 }
 
 .new-character-button {
-  color: var(--blue);
-  margin-left: 1rem;
-  border: 1px solid var(--blue);
+  color: var(--orange);
   font-weight: inherit;
-  border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  padding: 0;
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  border-radius: 5px;
+  padding: 3px 16px;
+}
+
+.new-character-button > i {
+  margin-right: 0.2rem;
+}
+
+.new-character-button:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--blue);
+  background-color: var(--card-color);
 }
