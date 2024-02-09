@@ -18,8 +18,8 @@
 }
 
 .received_msg > .title {
-  color: var(--orange);
-  font-size: 14px;
+  color: var(--green);
+  font-style: normal;
   margin: 0;
   font-weight: bold;
 }

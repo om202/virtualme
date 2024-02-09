@@ -1,7 +1,8 @@
 .navbar {
   border-bottom: 1px solid var(--border);
   padding: 0rem 1rem !important;
-  background-color: var(--blue);
+  background-color: var(--background) !important;
+  height: var(--nav-height);
 }
 
 .navbar * {
@@ -9,10 +10,18 @@
 }
 
 .navbar-brand {
-  color: #fff !important;
   font-family: "Honk", system-ui;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: bolder !important;
   text-transform: lowercase;
   font-style: italic;
+  background: var(--official-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-logo {
+  height: 26px;
+  margin-right: 1rem;
 }

@@ -19,12 +19,12 @@
 }
 
 .new-character-button {
-  color: var(--orange);
-  font-weight: inherit;
-  color: var(--blue);
-  border: 1px solid var(--blue);
+  background: var(--official-gradient-left);
+  color: black;
+  border: none;
   border-radius: 5px;
   padding: 3px 16px;
+  font-weight: bold;
 }
 
 .new-character-button > i {
@@ -34,7 +34,20 @@
 .new-character-button:hover {
   cursor: pointer;
   text-decoration: none;
-  color: var(--blue);
+  background-color: var(--card-color);
+}
+
+.title-button-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+
+}
+
+.navbar-toggle {
   background-color: var(--card-color);
 }
 
