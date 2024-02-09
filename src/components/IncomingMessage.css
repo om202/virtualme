@@ -18,7 +18,7 @@
 }
 
 .received_msg > .title {
-  color: var(--green);
+  color: var(--orange);
   font-style: normal;
   margin: 0;
   font-weight: bold;
