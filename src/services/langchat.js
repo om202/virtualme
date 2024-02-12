@@ -1,4 +1,5 @@
 import { ChatOpenAI } from "@langchain/openai";
+
 import { ConversationChain } from "langchain/chains";
 import {
   ChatPromptTemplate,
@@ -8,6 +9,7 @@ import { BufferMemory } from "langchain/memory";
 
 const chatmodel = new ChatOpenAI({
   openAIApiKey: process.env.REACT_APP_OPENAI_KEY,
+  modelName: "gpt-4-turbo-preview",
 });
 
 let chain = null;

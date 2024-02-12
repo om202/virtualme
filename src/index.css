@@ -2,16 +2,16 @@
 
 :root {
   --font-color: #dbe2f0;
-  --card-color: #2f2f2f;
-  --background: rgb(36, 37, 37);
+  --card-color: #242424;
+  --background:  #0c0c0c;
   --border: #3f3f3f;
   --blue: #007bff;
-  --purple: #b10dc9;
-  --orange: #ff8c00;
-  --green: #23db03;
+  --purple: #e44cfc;
+  --orange: #FFA500;;
+  --green: #5ff95f;
   --border-radius: 8px;
-  --official-gradient: linear-gradient(to right, var(--blue), var(--green), var(--purple));
-  --official-gradient-left: linear-gradient(to left, var(--blue), var(--green), var(--purple));
+  --official-gradient: linear-gradient(80deg, var(--blue), var(--green), var(--purple));
+  --official-gradient-left: linear-gradient(80deg, var(--blue), var(--green), var(--purple));
   --nav-height: 50px;
 }
 
