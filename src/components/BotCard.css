@@ -3,9 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 190px;
+  width: 180px;
   height: 180px;
-  background-color: var(--card-color);
   border-radius: var(--border-radius);
   padding: 1rem;
   margin-right: 8px;
@@ -13,7 +12,7 @@
 }
 
 .bot-card:hover {
-  background-color: var(--border);
+  background-color: var(--card-color);
   cursor: pointer;
 }
 

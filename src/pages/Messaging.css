@@ -6,6 +6,32 @@
   flex-direction: column;
 }
 
+.messaging-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.bot-title-image {
+  max-width: 140px;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.bot-title-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.bot-title-instructions {
+  font-size: 1rem;
+  font-style: italic;
+  max-width: 400px;
+  text-align: center;
+}
+
 .input_msg_write input {
   background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
   border: none;

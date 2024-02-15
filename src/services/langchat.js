@@ -25,10 +25,10 @@ export const setUpChat = (instructions) => {
   ]);
 
   chain = new ConversationChain({
-    memory: new BufferMemory({ returnMessages: true, memoryKey: "history" }),
+    memory: new BufferMemory({ returnMessages: true, memoryKey: "history", }),
     prompt: chatPrompt,
     llm: chatmodel,
-  });
+  });     
 };
 
 export const chat = async (input) => {
@@ -39,5 +39,6 @@ export const chat = async (input) => {
     input: input,
   });
 
+  console.log(response);
   return response.response;
 };

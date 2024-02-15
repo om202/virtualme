@@ -9,7 +9,8 @@ import { BotData } from "../botdata";
 export default function Messaging() {
   const location = useLocation();
   const botIndex = location.state ? location.state.botIndex : 0;
-  const { name, img, initlaMessage, instructions } = BotData[botIndex];
+  const { name, img, initlaMessage, userInstructions, instructions } =
+    BotData[botIndex];
   const [message, setMessage] = React.useState("");
   const [chatData, setChatData] = React.useState([]);
   const msgHistoryRef = React.useRef(null);
@@ -77,6 +78,11 @@ export default function Messaging() {
     <div className="container-fluid messaging-container">
       <div className="messaging">
         <div className="msg_history" ref={msgHistoryRef}>
+          {/* <div className="messaging-header">
+            <img src={img} className="bot-title-image" alt="bot" />
+            <div className="bot-title-name">{name}</div>
+            <div className="bot-title-instructions">{userInstructions}</div>
+          </div> */}
           {chatData.map((chat, index) => {
             if (chat.type === "incoming") {
               return (
