@@ -27,4 +27,5 @@
 .received_withd_msg p {
   color: var(--font-color);
   margin: 0;
+  line-height: 1.5 !important;
 }
