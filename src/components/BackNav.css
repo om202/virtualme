@@ -1,0 +1,37 @@
+.back-nav {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+  width: auto;
+  border-radius: 100px;
+  background-color: #80808071;
+  color: white;
+  padding: 4px 1rem;
+}
+
+.logo-back-nav {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+}
+
+.button-back-nav {
+  background-color: transparent;
+  border: none;
+  color: var(--font-color);
+  font-weight: inherit;
+  margin-left: 10px;
+}
+
+.button-back-nav:hover {
+  color: white;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 400px) {
+  .back-nav {
+    padding: 2px 0.3rem;
+  }
+}

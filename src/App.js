@@ -11,7 +11,6 @@ function App() {
   return (
     <div>
       <Router>
-        <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/messaging" element={<Messaging />} />

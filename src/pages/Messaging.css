@@ -1,6 +1,5 @@
 .messaging-container {
   display: flex;
-  margin-top: 54px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -44,6 +43,7 @@
 .input_msg_write {
   border-top: 1px solid var(--border);
   position: relative;
+  padding: 0 1rem;
 }
 
 .write_msg:focus {
@@ -69,8 +69,8 @@
 }
 
 .msg_history {
-  height: calc(100vh - 54px - 49px);
-  height: calc(var(--vh, 1vh) * 100 - 54px - 51px);
+  height: calc(100vh - 49px);
+  height: calc(var(--vh, 1vh) * 100 - 51px);
   overflow-y: auto;
-  padding-bottom: 4rem;
+  padding: 4rem 10px;
 }
