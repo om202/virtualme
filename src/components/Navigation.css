@@ -10,12 +10,11 @@
 }
 
 .navbar-brand {
-  font-family: "Honk", system-ui;
+  font-family: "Raleway", sans-serif;
   font-size: 1.6rem;
-  font-weight: bolder !important;
-  text-transform: lowercase;
   font-style: italic;
-  background: var(--official-gradient);
+  text-transform: lowercase;
+  background: linear-gradient(120deg, lime, cyan);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

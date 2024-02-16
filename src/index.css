@@ -10,8 +10,7 @@
   --orange: #FFA500;;
   --green: #5ff95f;
   --border-radius: 8px;
-  --official-gradient: linear-gradient(80deg, var(--blue), var(--green), var(--purple));
-  --official-gradient-left: linear-gradient(80deg, var(--blue), var(--green), var(--purple));
+  --official-gradient: linear-gradient(120deg, rgb(32, 211, 32), rgb(36, 214, 214));
   --nav-height: 50px;
 }
 
