@@ -5,8 +5,36 @@
   height: var(--nav-height);
 }
 
-.navbar * {
+.navbar-toggle {
+  background: none !important;
+}
+
+.toggle-icon {
+  color: white !important;
+  font-size: 1.8rem;
+}
+
+.navbar-toggle:focus {
+  border: none;
+  outline: none;
+}
+
+.navbar a {
   color: var(--font-color) !important;
+  margin-left: 1rem;
+}
+
+.navbar a:hover {
+ color: cyan !important;
+}
+
+
+.navbar-collapse {
+  background-color: rgba(0, 0, 0, 0.9);
+  /* padding: 1rem; */
+  box-sizing: border-box;
+  margin-top: 4px;
+  border-radius: 0.5rem;
 }
 
 .navbar-brand {
