@@ -22,7 +22,7 @@ const Home = () => {
             Create
           </button>
         </div>
-        <div className="row mt-4">
+        <div className="row mt-4 bot-container">
           {BotData.map((bot, index) => (
             <BotCard key={index} botIndex={index} />
           ))}

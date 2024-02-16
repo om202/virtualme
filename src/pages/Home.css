@@ -2,11 +2,8 @@
   padding: 2rem 4rem;
 }
 
-.bot-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
+.bot-container {
+  gap: 16px;
 }
 
 .title-container {
