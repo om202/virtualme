@@ -12,15 +12,13 @@ const Home = () => {
       <Navigation />
       <HomeBanner />
       <div className="container-fluid home-container">
-        <div className="row title-button-row">
-          <div className="title">Choose a Character</div>
-          <button
-            onClick={() => navigate("/new")}
-            className="btn new-character-button"
-          >
-            <i className="bi bi-stars"></i>
-            Create
-          </button>
+        <div className="row">
+          <div className="home-title">Choose a Character</div>
+        </div>
+        <div className="row">
+          <div>
+            <b>Tip:</b> For best results. Talk to the characters normally. Treat them as if they were real people.
+          </div>
         </div>
         <div className="row mt-4 bot-container">
           {BotData.map((bot, index) => (

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Messaging.css";
 import { IncomingMessage } from "../components/IncomingMessage";
 import { OutgoingMessage } from "../components/OutgoingMessage";
@@ -6,15 +6,24 @@ import { useLocation } from "react-router-dom";
 import { chat, setUpChat } from "../services/langchat";
 import { BotData } from "../botdata";
 import BackNav from "../components/BackNav";
+import ModalBox from "../components/ModalBox";
+import { useNavigate, useBlocker } from "react-router-dom";
 
 export default function Messaging() {
+  const navigate = useNavigate();
   const location = useLocation();
   const botIndex = location.state ? location.state.botIndex : 0;
-  const { name, img, initlaMessage, userInstructions, instructions } =
-    BotData[botIndex];
+  const { name, img, initlaMessage, instructions } = BotData[botIndex];
   const [message, setMessage] = React.useState("");
   const [chatData, setChatData] = React.useState([]);
   const msgHistoryRef = React.useRef(null);
+  const messageInput = React.useRef(null);
+
+
+  const handleBeforeUnload = (event) => {
+    event.preventDefault();
+    event.returnValue = "";
+  };
 
   useEffect(() => {
     const setVh = () => {
@@ -24,9 +33,11 @@ export default function Messaging() {
 
     window.addEventListener("resize", setVh);
     setVh(); // Call the function immediately
+    window.addEventListener("beforeunload", handleBeforeUnload);
 
     return () => {
       window.removeEventListener("resize", setVh);
+      window.removeEventListener("beforeunload", handleBeforeUnload);
     };
   }, []);
 
@@ -43,6 +54,8 @@ export default function Messaging() {
 
   const sendMessage = (e) => {
     e.preventDefault();
+    messageInput.current.disabled = true;
+    messageInput.current.placeholder = "Bot is typing...";
     if (message === "") return;
     setMessage("");
 
@@ -66,6 +79,9 @@ export default function Messaging() {
           type: "incoming",
         },
       ]);
+      messageInput.current.disabled = false;
+      messageInput.current.placeholder = "Type a message";
+      messageInput.current.focus();
     });
   };
 
@@ -75,12 +91,34 @@ export default function Messaging() {
     }
   }, [chatData]);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <>
-      <BackNav />
+      <BackNav clickFn={openModal} />
+      <ModalBox isOpen={isModalOpen} onClose={closeModal}>
+        <p>All data will be lost. Continue?</p>
+        <button className="btn btn-primary" onClick={closeModal}>
+          Cancel
+        </button>
+        <button className="btn btn-danger" onClick={() => navigate("/")}>
+          Leave
+        </button>
+      </ModalBox>
       <div className="messaging-container">
         <div className="messaging">
           <div className="msg_history" ref={msgHistoryRef}>
+            <p className="mt-1 mb-1 text-muted">
+              Remember: Everything the character say is made up!
+            </p>
             {chatData.map((chat, index) => {
               if (chat.type === "incoming") {
                 return (
@@ -107,6 +145,7 @@ export default function Messaging() {
             <form onSubmit={sendMessage}>
               <input
                 type="text"
+                ref={messageInput}
                 className="write_msg"
                 placeholder="Type a message"
                 value={message}

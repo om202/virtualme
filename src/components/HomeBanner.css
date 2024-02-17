@@ -13,7 +13,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 280px;
+  height: 300px;
   background-image: linear-gradient(
       rgba(1, 90, 115, 0.6),
       rgba(1, 63, 29, 0.6)
@@ -39,6 +39,11 @@
 
 .home-banner__description {
   font-size: 1.7rem;
+}
+
+.home-banner__logo {
+  height: 100px;
+  margin-bottom: 1rem;
 }
 
 @media screen and (max-width: 600px){

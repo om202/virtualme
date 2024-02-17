@@ -7,7 +7,7 @@ export const Navigation = () => {
   return (
     <Navbar expand="lg" className="shadow-sm navbar fixed-top">
       <Navbar.Brand href="/" className="font-weight-bold navbar-brand">
-        <img src="./logo.png" alt="logo" className="brand-logo" />
+        <img src="./logo2.png" alt="logo" className="brand-logo" />
         {AppConst.APP_NAME}
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="navbar-toggle">
