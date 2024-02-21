@@ -15,5 +15,5 @@ export default function HomeBanner() {
         </p>
       </div>
     </div>
-  );
+  ); 
 }
